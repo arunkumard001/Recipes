@@ -27,21 +27,9 @@ Recipe _$RecipeFromJson(Map<String, dynamic> json) {
         ? null
         : DateTime.parse(json['modified'] as String)
     ..modifiedBy = json['modified_by'] as String
-    ..enabled = json['enabled'] as int
-    ..email = json['email'] as String
-    ..firstName = json['first_name'] as String
-    ..middleName = json['middle_name'] as String
-    ..lastName = json['last_name'] as String
-    ..fullName = json['full_name'] as String
-    ..username = json['username'] as String
-    ..language = json['language'] as String
-    ..gender = json['gender'] as String
-    ..phone = json['phone'] as String
-    ..mobileNo = json['mobile_no'] as String
-    ..lastLogin = json['last_login'] == null
+    ..data = json['data'] == null
         ? null
-        : DateTime.parse(json['last_login'] as String)
-    ..userImage = json['user_image'] as String;
+        : Data.fromJson(json['data'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
@@ -60,17 +48,5 @@ Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
       'parentfield': instance.parentField,
       'modified': FrappeDocFieldConverter.toFrappeDateTime(instance.modified),
       'modified_by': instance.modifiedBy,
-      'enabled': instance.enabled,
-      'email': instance.email,
-      'first_name': instance.firstName,
-      'middle_name': instance.middleName,
-      'last_name': instance.lastName,
-      'full_name': instance.fullName,
-      'username': instance.username,
-      'language': instance.language,
-      'gender': instance.gender,
-      'phone': instance.phone,
-      'mobile_no': instance.mobileNo,
-      'last_login': instance.lastLogin?.toIso8601String(),
-      'user_image': instance.userImage,
+      'data': instance.data,
     };

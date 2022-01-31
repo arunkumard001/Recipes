@@ -9,9 +9,9 @@ import 'app/routes/app_pages.dart';
 Future<void> main() async {
   await GetStorage.init();
   WidgetsBinding.instance;
-  final renovationInstance = Renovation();
+  Renovation renovationInstance = Renovation();
   await renovationInstance.init(baseuri, useJWT: true);
-  await renovationInstance.auth.checkLogin;
+  await renovationInstance.auth.checkLogin();
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,

@@ -1,13 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:recipes/app/data/recipes.dart';
-import 'package:renovation_core/core.dart';
-import 'package:renovation_core/model.dart';
-import 'package:renovation_core/perm.dart';
+import 'package:recipes/app/modules/dashboard/data_model.dart';
+import 'package:recipes/app/modules/dashboard/providers/data_provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:get/get.dart';
 import 'package:recipes/app/data/authencationmanager.dart';
-import 'package:recipes/app/data/loginresponse.dart';
 import 'package:recipes/app/routes/app_pages.dart';
 
 import '../controllers/dashboard_controller.dart';
@@ -15,10 +12,9 @@ import '../controllers/dashboard_controller.dart';
 class DashboardView extends GetView<DashboardController> {
   AuthenticationManager auth = AuthenticationManager();
   DashboardController dashboardcontroller = Get.put(DashboardController());
-
+  Message data = Message();
   @override
   Widget build(BuildContext context) {
-    var LOGIN = LoginResponseModel();
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -88,7 +84,7 @@ class DashboardView extends GetView<DashboardController> {
                   physics: BouncingScrollPhysics(),
                   padding: EdgeInsets.all(20),
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: 2,
                   reverse: true,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
@@ -104,14 +100,13 @@ class DashboardView extends GetView<DashboardController> {
                           child: ListView(
                             primary: false,
                             children: [
-                              // Image.network(
-                              //     "https://cdn9.pngable.com/t/8/22/3/VLJebgKtkH/food-recipe.jpg"),
+                              // Image.network(""),
                               SizedBox(
                                 height: 220,
                               ),
-                              Text("salmon with \n couscous",
+                              Text("",
                                   style: TextStyle(
-                                    color: Color(0xFF3d3232),
+                                    color: Color(0xFF2B2626),
                                     fontSize: 28,
                                   )),
                               SizedBox(

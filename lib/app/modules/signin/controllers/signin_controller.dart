@@ -52,5 +52,10 @@ class SigninController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    super.dispose();
+    signupfirstname;
+    signuplastname;
+    signupemail;
+  }
 }
